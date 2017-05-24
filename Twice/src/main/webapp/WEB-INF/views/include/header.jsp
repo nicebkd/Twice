@@ -8,25 +8,38 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   
+  <!-- css -->
+  <!-- 로그인 -->
+  <link href="<c:url value="/resources/css/joinview.css" />" rel="stylesheet">
+  <link href="<c:url value="/resources/css/login.css" />" rel="stylesheet">
+  <link href="<c:url value="/resources/css/3dimages.css" />" rel="stylesheet">
+  
   <style type="text/css">
-/* div {
+/*  div {
 	border: 1px solid black;
 }
- */
+  */
 .nav {
 	padding-right: 15px;
 }
 
 #content {
+	margin-top : 55px;
 	margin-left: 50px;
-	padding: 10px;
+	padding: 0px;
 	height: 800px;
 }
 
 #side {
+	margin-top : 55px;
 	margin-right: 50px;
 	padding: 10px;
 	height: 800px;
+}
+
+#contentimage{
+	margin: 0px;
+	padding: 0px;
 }
 
 #footer{
