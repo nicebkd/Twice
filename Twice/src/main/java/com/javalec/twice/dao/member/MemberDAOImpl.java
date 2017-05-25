@@ -1,5 +1,8 @@
 package com.javalec.twice.dao.member;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
@@ -23,6 +26,19 @@ public class MemberDAOImpl implements MemberDAO{
 	public int idcheck(String userid) {
 		
 		return sqlSession.selectOne("member.idcheck",userid);
+	}
+
+	@Override
+	public MemberVO login(String userid, String userpw) {
+		
+		MemberVO dto = new MemberVO();
+		Map<String,String> map=new HashMap<String,String>(); 
+		map.put("userid",userid);
+		map.put("userpw",userpw);
+		
+		dto = (MemberVO) sqlSession.selectOne("member.login",map);
+	
+		return dto;
 	}
 	
 }

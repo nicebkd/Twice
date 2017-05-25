@@ -13,6 +13,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from user_tbl where userid=#{userid}
 	</select>
 	
+	<select id="login" resultType="com.javalec.twice.model.MemberVO">
+		select * from user_tbl where userid=#{userid} and userpw=#{userpw}
+	</select>
 	
 </mapper>
 

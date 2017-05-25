@@ -6,11 +6,11 @@
 		<div class="loginmodal-container">
 			<h1>Login to Your Account</h1>
 			<br>
-			<form>
-				<input type="text" name="user" placeholder="Username"> <input
-					type="password" name="pass" placeholder="Password"> <input
-					type="submit" name="login" class="login loginmodal-submit"
-					value="Login">
+			<form name="form1">
+				<input type="text" id="userid2" name="userid" placeholder="Username">
+				<input type="password" id="userpw2" name="userpw" placeholder="Password">
+			    <input type="button" id="loginBtn" name="login" class="login loginmodal-submit" value="Login">
+			    <div id="loginCheck"></div>
 			</form>
 
 			<div class="login-help">

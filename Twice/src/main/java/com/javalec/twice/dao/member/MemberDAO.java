@@ -6,6 +6,8 @@ public interface MemberDAO {
 	
 	public void joinMember(MemberVO vo);
 	public int idcheck(String userid);
+	public MemberVO login(String userid,String userpw);
+	
 	
 
 }

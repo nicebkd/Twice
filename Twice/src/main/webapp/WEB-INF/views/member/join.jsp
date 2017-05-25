@@ -9,17 +9,26 @@
 <script>
 $(document).ready(function(){
 	
+	
 	$("#userid").blur(function() {
+		var re_id = /^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/; // 이메일 검사식
 		var userid=$("#userid").val();
  		var param ="userid="+userid; 
+ 		if(re_id.test(userid)!=true){
+ 			$("#idcheck").html('<span style="color:red">유효한 아이디가 아닙니다.[이메일 형식]</span>');
+ 			$("#userid").focus();
+ 			return;
+ 		}
 		
  		$.ajax({
 			type: "post",
 			url: "${path}/member/idcheck.do",
 			data: param,
 			success: function(data) {
+				
 				if(data=="success"){
 					$("#idcheck").html('<span style="color:red">이미 아이디가 존재합니다.</span>');
+					$("#userid").focus();
 				}else{
 					$("#idcheck").html('<span style="color:blue">사용 가능한 아이디 입니다.</span>');	
 				}
@@ -28,19 +37,17 @@ $(document).ready(function(){
 		}); 
 	});
 	
-	$("#joinBtn").click(function() {
-		var userid = $("#userid").val();
+	$("#userpw").blur(function() {
+		var re_pw = /^[a-z0-9_-]{6,18}$/; // 비밀번호 검사식
 		var userpw = $("#userpw").val();
-		var userpw2 = $("#userpw2").val();
-		var username = $("#username").val();
-		var gender =$("#gender").val();
 		
-		if(userpw!=userpw2){
-			alert("두 비밀번호가 일치 하지 않습니다.");
-			$("#userpw").focus();
-		}
-	});
-	
+ 		if(re_pw.test(userpw)!=true){
+ 			$("#pwcheck").html('<span style="color:red">유효한 비밀번호가 아닙니다.6자이상 영문 숫자</span>');
+ 			$("#pwcheck").focus();
+ 		}else{
+ 			$("#pwcheck").html('<span style="color:blue">OK</span>');
+ 		}
+	});	
 });
 </script>
 </head>
@@ -52,7 +59,7 @@ $(document).ready(function(){
     <div class="col-md-8">
         <h1 class="entry-title"><span>Sign Up</span> </h1>
         <hr>
-            <form class="form-horizontal" method="post" name="signup" id="signup" action="${path}/member/join.do">        
+            <form class="form-horizontal" method="post" name="signup" id="signup" name="form1" action="${path}/member/join.do">        
         <div class="form-group" >
           <label class="control-label col-sm-3">Email ID <span class="text-danger">*</span></label>
           <div class="col-md-8 col-sm-9">
@@ -70,7 +77,8 @@ $(document).ready(function(){
             <div class="input-group">
               <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
               <input type="password" class="form-control" name="userpw" id="userpw" placeholder="Choose password (5-15 chars)" value="">
-           </div>   
+           </div> 
+           <div id="pwcheck"></div>  
           </div>
         </div>
         <div class="form-group">
@@ -111,7 +119,7 @@ $(document).ready(function(){
         </div> -->
         <div class="form-group">
           <div class="col-xs-offset-3 col-xs-10">
-            <input id="joinBtn" type="submit" value="Sign Up" class="btn btn-primary">
+            <input id="joinBtn" type="button" value="Sign Up" class="btn btn-primary">
           </div>
         </div>
       </form>

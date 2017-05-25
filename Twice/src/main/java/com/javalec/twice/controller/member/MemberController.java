@@ -1,10 +1,10 @@
 package com.javalec.twice.controller.member;
 
 import java.io.IOException;
-import java.io.OutputStream;
 import java.io.Writer;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +38,7 @@ public class MemberController {
 	public String join(@ModelAttribute MemberVO vo){
 		memberService.joinMember(vo);
 		
-		return "/";		
+		return "home";		
 	}
 	
 	@RequestMapping("idcheck.do")
@@ -55,5 +55,29 @@ public class MemberController {
 			}
 		}
 	}
+	
+	@RequestMapping("login.do")
+	public void login(String userid,String userpw,Writer wr,HttpSession session) throws IOException{
 		
+		MemberVO dto = new MemberVO();
+		dto = memberService.login(userid, userpw);
+				
+		if(dto ==null){
+			wr.write("fail");
+		}else{
+			wr.write("success");
+			session.setAttribute("dto",dto);
+		}
+
+	}
+	
+	@RequestMapping("logout.do")
+	public String logout(HttpSession session){
+		
+		memberService.logout(session);
+		
+		return "home";
+	}
+	
+
 }

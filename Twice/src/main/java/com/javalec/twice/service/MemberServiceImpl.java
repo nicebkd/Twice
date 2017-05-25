@@ -1,6 +1,7 @@
 package com.javalec.twice.service;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
@@ -22,6 +23,17 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public int idcheck(String userid) {
 		return memberDao.idcheck(userid);
+	}
+
+	@Override
+	public MemberVO login(String userid, String userpw) {
+		
+		return memberDao.login(userid, userpw);
+	}
+
+	@Override
+	public void logout(HttpSession session) {
+			session.invalidate();
 	}
 
 }
