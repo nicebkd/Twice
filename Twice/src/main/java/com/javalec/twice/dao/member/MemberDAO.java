@@ -1,6 +1,6 @@
 package com.javalec.twice.dao.member;
 
-import com.javalec.twice.model.MemberVO;
+import com.javalec.twice.model.member.MemberVO;
 
 public interface MemberDAO {
 	

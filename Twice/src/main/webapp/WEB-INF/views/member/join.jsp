@@ -9,7 +9,6 @@
 <script>
 $(document).ready(function(){
 	
-	
 	$("#userid").blur(function() {
 		var re_id = /^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/; // 이메일 검사식
 		var userid=$("#userid").val();
@@ -48,6 +47,34 @@ $(document).ready(function(){
  			$("#pwcheck").html('<span style="color:blue">OK</span>');
  		}
 	});	
+	
+	
+	$("#loginBtn").click(function() {
+		alert("click");
+	});
+/* 	$("#loginBtn").click(function() {
+		alert("click");
+ 		var userid = ("#userid");
+		var userpw = ("#userpw");
+		var userpw2 = ("#userpw2");
+		var username = ("#username");
+		
+		var re_id = /^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/; // 이메일 검사식
+		var re_pw = /^[a-z0-9_-]{6,18}$/; // 비밀번호 검사식
+		
+		if(re_id.test(userid).val()!=true){
+			$("#userid").focus();
+			alert("아이디 유효성X")
+			return false;
+		}else if(re_pw.test(userpw).val()!=true){
+			$("#userid").focus();
+			return false;
+		}else if(userpw2 =""){
+			alert("비밀번호 체크 입력안함")
+		}
+		
+		document.for1m.submit() 
+	}); */
 });
 </script>
 </head>

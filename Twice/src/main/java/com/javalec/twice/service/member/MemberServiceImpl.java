@@ -1,4 +1,4 @@
-package com.javalec.twice.service;
+package com.javalec.twice.service.member;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -6,7 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Service;
 
 import com.javalec.twice.dao.member.MemberDAOImpl;
-import com.javalec.twice.model.MemberVO;
+import com.javalec.twice.model.member.MemberVO;
 
 @Service
 public class MemberServiceImpl implements MemberService{

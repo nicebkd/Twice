@@ -1,8 +1,8 @@
-package com.javalec.twice.service;
+package com.javalec.twice.service.member;
 
 import javax.servlet.http.HttpSession;
 
-import com.javalec.twice.model.MemberVO;
+import com.javalec.twice.model.member.MemberVO;
 
 public interface MemberService {
 	

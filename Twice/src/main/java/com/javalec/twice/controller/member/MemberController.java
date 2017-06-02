@@ -13,8 +13,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.javalec.twice.model.MemberVO;
-import com.javalec.twice.service.MemberServiceImpl;
+import com.javalec.twice.model.member.MemberVO;
+import com.javalec.twice.service.member.MemberServiceImpl;
 
 @Controller
 @RequestMapping("/member/*")

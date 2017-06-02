@@ -1,4 +1,4 @@
-package com.javalec.twice.model;
+package com.javalec.twice.model.member;
 
 import java.sql.Date;
 
